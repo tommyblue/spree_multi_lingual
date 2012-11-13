@@ -36,7 +36,7 @@
         <% @taxonomy.root.children.each_with_index do |taxon,i| %>
           {
             "attr" : { "id" : "<%= taxon.id %>"},
-            "data" : "<%= taxon.send("name#{locale_suffix(params[:lang])}").gsub('"', '\"') %>"
+            "data" : "<%= taxon.send("name#{locale_suffix(params[:lang])}").strip %>"
             <% unless taxon.children.empty? %>
               ,"state" : "closed"
             <% end %>
